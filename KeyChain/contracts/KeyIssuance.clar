@@ -25,7 +25,7 @@
     (ok (get check-in-time (map-get? token-metadata token-id)))
 )
 
-(define-read-only (get-busienss (token-id uint))
+(define-read-only (get-business (token-id uint))
     (ok (get business (map-get? token-metadata token-id)))
 )
 

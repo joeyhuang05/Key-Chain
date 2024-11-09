@@ -12,6 +12,11 @@ path = 'contracts/KeyIssuance.clar'
 clarity_version = 3
 epoch = 3.0
 
+[contracts.KeyIssuance2]
+path = 'contracts/KeyIssuance2.clar'
+clarity_version = 3
+epoch = 3.0
+
 [contracts.KeyReader]
 path = 'contracts/KeyReader.clar'
 clarity_version = 3
