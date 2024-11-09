@@ -1,30 +1,50 @@
+(impl-trait 'SP2PABAF9FTAJYNFZH93XENAJ8FVY99RRM50D2JG9.nft-trait.nft-trait)
 
-;; title: KeyIssuance
-;; version:
-;; summary:
-;; description:
+(define-constant contract-owner tx-sender)
+(define-constant err-owner-only (err u100))
+(define-constant err-not-token-owner (err u101))
 
-;; traits
-;;
+(define-non-fungible-token key uint)
 
-;; token definitions
-;;
+(define-data-var last-token-id uint u0)
+(define-map token-metadata uint (tuple (business principal) (check-in-time uint)))
 
-;; constants
-;;
+(define-read-only (get-last-token-id)
+	(ok (var-get last-token-id))
+)
 
-;; data vars
-;;
+(define-read-only (get-token-uri (token-id uint))
+	(ok none)
+)
 
-;; data maps
-;;
+(define-read-only (get-owner (token-id uint))
+	(ok (nft-get-owner? key token-id))
+)
 
-;; public functions
-;;
+(define-read-only (get-check-in-time (token-id uint))
+    (ok (get check-in-time (map-get? token-metadata token-id)))
+)
 
-;; read only functions
-;;
+(define-read-only (get-busienss (token-id uint))
+    (ok (get business (map-get? token-metadata token-id)))
+)
 
-;; private functions
-;;
+(define-public (transfer (token-id uint) (sender principal) (recipient principal))
+	(begin
+		(asserts! (is-eq tx-sender sender) err-not-token-owner)
+		(nft-transfer? key token-id sender recipient)
+	)
+)
 
+(define-public (mint (recipient principal))
+	(let
+		(
+			(token-id (+ (var-get last-token-id) u1))
+		)
+		(asserts! (is-eq tx-sender contract-owner) err-owner-only)
+		(try! (nft-mint? key token-id recipient))
+        (var-set last-token-id token-id)
+        (map-insert token-metadata token-id (tuple (business contract-owner) (check-in-time stacks-block-height)))
+		(ok token-id)
+	)
+)
