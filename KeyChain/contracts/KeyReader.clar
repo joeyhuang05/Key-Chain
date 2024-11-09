@@ -6,7 +6,7 @@
 
 ;; traits
 ;;
-you are dumb
+
 ;; token definitions
 ;;
 
