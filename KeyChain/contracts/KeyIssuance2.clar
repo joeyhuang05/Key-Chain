@@ -10,7 +10,7 @@
         (begin
             (try! (nft-mint? keys (var-get nfts-minted) user))
             (var-set nfts-minted (+ (var-get nfts-minted) u1))
-            (ok "Key issued successfully!")
+            (ok (var-get nfts-minted))
         )
     ))
 
