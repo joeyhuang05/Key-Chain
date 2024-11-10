@@ -16,8 +16,6 @@ describe("Key Reader Test", () => {
     expect(0).toBe(0);
   });
 
-
-  
   it("contract deployed", () => {
     const contractSource = simnet.getContractSource("KeyReader");
     expect(contractSource).toBeDefined();
@@ -93,8 +91,4 @@ describe("Key Reader Test", () => {
     
   });
 
-
-
-
- 
 });
