@@ -51,12 +51,7 @@ plan:
       transactions: []
       epoch: "2.0"
     - id: 1
-      transactions:
-        - emulated-contract-publish:
-            contract-name: nft-trait
-            emulated-sender: SP2PABAF9FTAJYNFZH93XENAJ8FVY99RRM50D2JG9
-            path: "./.cache/requirements/SP2PABAF9FTAJYNFZH93XENAJ8FVY99RRM50D2JG9.nft-trait.clar"
-            clarity-version: 1
+      transactions: []
       epoch: "2.1"
     - id: 2
       transactions: []
@@ -255,11 +250,6 @@ plan:
       epoch: "2.1"
     - id: 67
       transactions:
-        - emulated-contract-publish:
-            contract-name: KeyIssuance
-            emulated-sender: ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM
-            path: contracts/KeyIssuance.clar
-            clarity-version: 3
         - emulated-contract-publish:
             contract-name: KeyIssuance2
             emulated-sender: ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM
@@ -464,5 +454,8 @@ plan:
       transactions: []
       epoch: "3.0"
     - id: 132
+      transactions: []
+      epoch: "3.0"
+    - id: 133
       transactions: []
       epoch: "3.0"
