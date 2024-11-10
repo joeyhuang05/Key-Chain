@@ -1,26 +1,27 @@
 
 import { describe, expect, it } from "vitest";
 
-import { principalCV, cvToJSON , uintCV } from '@stacks/transactions';
+import { principalCV, cvToJSON , uintCV, PrincipalCV } from '@stacks/transactions';
 
 
-const accounts = simnet.getAccounts();
-const address1 = accounts.get("wallet_1")!;
+const accounts: Map<string, string> = simnet.getAccounts();
+const address1: string = accounts.get("wallet_1")!;
 
 describe("Key Issuance 2 test", () => {
-  const recipient = principalCV('STB44HYPYAT2BB2QE513NSP81HTMYWBJP02HPGK6');
 
   it("contract deployed", () => {
     const contractSource = simnet.getContractSource("KeyIssuance2");
     expect(contractSource).toBeDefined();
   });
 
+  // example recipent
+  const recipient: PrincipalCV = principalCV('STB44HYPYAT2BB2QE513NSP81HTMYWBJP02HPGK6');
   
   /**
    * Issue Key Tests
    */
 
-  it ("issue-key -> check 1st key", () => {
+  it ("issue-key: check 1st key", () => {
     const {result} = simnet.callPublicFn(
       "KeyIssuance2",    // Contract name
       "issue-key",       // Function name
@@ -33,7 +34,7 @@ describe("Key Issuance 2 test", () => {
     expect(tokenID).toBe("0");        
   });
 
-  it ("issue-key: -> check 2nd id", () => {
+  it ("issue-key: check 2nd id", () => {
     const ignore = simnet.callPublicFn(
       "KeyIssuance2",    
       "issue-key",       
@@ -55,7 +56,7 @@ describe("Key Issuance 2 test", () => {
    * Get Key Details Tests
    */
 
-  it ("get-key-details -> correct address", () => {
+  it ("get-key-details: correct address", () => {
     // Get the key
     const keyData = simnet.callPublicFn(
       "KeyIssuance2",    // Contract name
@@ -85,14 +86,13 @@ describe("Key Issuance 2 test", () => {
     expect(address).toBe(address1);
   });
 
-  it ("get-key-details -> correct time", () => {
+  it ("get-key-details: correct time", () => {
     const ignore = simnet.callPublicFn(
       "KeyIssuance2",    // Contract name
       "issue-key",       // Function name
       [recipient],      // Arguments for the function (recipient)
       address1          // Sender address (contract owner in this case)
     );
-
 
     const keyData = simnet.callPublicFn(
       "KeyIssuance2",    // Contract name

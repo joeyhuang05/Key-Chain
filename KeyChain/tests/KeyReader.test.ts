@@ -1,21 +1,29 @@
 
 import { describe, expect, it } from "vitest";
 
-const accounts = simnet.getAccounts();
-const address1 = accounts.get("wallet_1")!;
+import { generateMockPrincipals } from "./mocks";
 
-/*
-  The test below is an example. To learn more, read the testing documentation here:
-  https://docs.hiro.so/stacks/clarinet-js-sdk
-*/
+import { principalCV, cvToJSON , uintCV, PrincipalCV } from '@stacks/transactions';
 
-describe("example tests", () => {
-  it("ensures simnet is well initalised", () => {
-    expect(simnet.blockHeight).toBeDefined();
+const accounts: Map<string, string> = simnet.getAccounts();
+const address1: string = accounts.get("wallet_1")!;
+
+
+describe("Key Reader Test", () => {
+
+  it("contract deployed", () => {
+    const contractSource = simnet.getContractSource("KeyReader");
+    expect(contractSource).toBeDefined();
   });
 
-  // it("shows an example", () => {
-  //   const { result } = simnet.callReadOnlyFn("counter", "get-counter", [], address1);
-  //   expect(result).toBeUint(0);
-  // });
+  const mockPrincipal: PrincipalCV[] = generateMockPrincipals(10).map(str => principalCV(str));
+
+
+
+
+
+
+  
+
+ 
 });
