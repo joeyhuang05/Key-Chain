@@ -165,37 +165,65 @@ describe("Key Issuance 2 test", () => {
 
     // user visits all 4 business and gets key
     senders.forEach(business => {
-      simnet.callPublicFn(
+      const response1 = simnet.callReadOnlyFn (
+        "KeyIssuance2",
+        "get-user-map",
+        [recipient],
+        cvToString(businessA)
+      )
+      const a = response1.result;
+ 
+      const json1 = cvToJSON(a);
+  
+      //console.log(json1.value);
+
+      const resuelto = simnet.callPublicFn(
         "KeyIssuance2",
         "issue-key",
-        [business],
-        cvToString(recipient)
+        [recipient],
+        cvToString(business)
       )
+      //console.log("hello", cvToJSON(resuelto.result))
+
+      const map = simnet.getMapEntry(
+        "KeyIssuance2",
+        "user-map",
+        recipient
+      )
+      console.log(cvToJSON(map).value)
+
+      const response = simnet.callReadOnlyFn (
+        "KeyIssuance2",
+        "get-user-map",
+        [recipient],
+        cvToString(businessA)
+      )
+      const {result} = response;
+ 
+      const json = cvToJSON(result);
+  
+      //console.log(json.value);
     });
     
     // Business A add all the other businesses
-    for (let i = 0; i <= 3; i++) {
-      simnet.callPublicFn(
-        "KeyReader",
-        "addKey",
-        [senders[i]],
-        cvToString(businessA)
-      )
-    }
+    //for (let i = 0; i <= 3; i++) {
+    //  simnet.callPublicFn(
+    //    "KeyReader",
+    //    "addKey",
+    //    [senders[i]],
+    //    cvToString(businessA)
+    //  )
+    //}
 
     // call function to check on user wallet (recipent) -> 2 matches
     const response = simnet.callReadOnlyFn (
       "KeyIssuance2",
       "get-user-map",
-      [businessA],
-      cvToString(recipient)
+      [recipient],
+      cvToString(businessA)
     )
 
-    const {result} = response;
- 
-    const json = cvToJSON(result);
-
-    console.log(json.value);
+  
 
     // console.log("Map check");
     // console.log(mapCheck);

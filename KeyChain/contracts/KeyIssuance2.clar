@@ -19,8 +19,8 @@
             (map-insert key-data token-id (tuple (business tx-sender) (time current-time)))
             (match
                 user-nfts
-                value (map-insert user-map user (unwrap! (as-max-len?  (append value tx-sender) u50) (err u1)))
-                (map-insert user-map user (list tx-sender))
+                value (map-set user-map user (unwrap! (as-max-len? (append value tx-sender) u50) (err u1)))
+                (map-set user-map user (list tx-sender))
             )
             (var-set live-keys (unwrap! (as-max-len?  (append (var-get live-keys) token-id) u50) (err u1)))
             (var-set nfts-minted (+ token-id u1))
