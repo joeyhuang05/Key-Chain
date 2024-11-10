@@ -5,7 +5,7 @@ authors = []
 telemetry = false
 cache_dir = './.cache'
 
-[project.requirements]]
+[[project.requirements]]
 contract_id = 'SP2PABAF9FTAJYNFZH93XENAJ8FVY99RRM50D2JG9.nft-trait'
 
 [contracts.KeyIssuance2]
