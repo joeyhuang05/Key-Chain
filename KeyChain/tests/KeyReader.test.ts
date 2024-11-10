@@ -54,7 +54,44 @@ describe("Key Reader Test", () => {
     }
   });
 
+  it("remove 5 keys", () => {
+    
+    for (let i = 0; i < 5; i++) {
+      simnet.callPublicFn(
+        "KeyReader",
+        "addKey",
+        [mocks[i]],
+        address1
+      )
+    }
 
+    const initial = simnet.getDataVar(
+      "KeyReader",
+      "connections"
+    )
+    const initialJSON = cvToJSON(initial).value;
+    for (let i = 0; i < 5; i++) {
+      expect(initialJSON[i].value).toBe(cvToString(mocks[i]));
+    }
+
+    for (let i = 0; i < 5; i++) {
+      simnet.callPublicFn(
+        "KeyReader",
+        "removeKey",
+        [mocks[i]],
+        address1
+      )
+    }
+
+    const after = simnet.getDataVar(
+      "KeyReader",
+      "connections"
+    )
+
+    const afterJSON = cvToJSON(after);
+    expect(afterJSON.value).toStrictEqual([]);
+    
+  });
 
 
 

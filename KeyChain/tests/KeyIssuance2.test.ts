@@ -110,28 +110,28 @@ describe("Key Issuance 2 test", () => {
    * Is Key Dead Tests
    */
 
-  // it ("is-dead: false", () => {
-  //   // issue a key
-  //   const keyData = simnet.callPublicFn(
-  //     "KeyIssuance2",    
-  //     "issue-key",      
-  //     [recipient],      
-  //     address1          
-  //   );
+  it ("is-dead: false", () => {
+    // issue a key
+    const keyData = simnet.callPublicFn(
+      "KeyIssuance2",    
+      "issue-key",      
+      [recipient],      
+      address1          
+    );
 
-  //   const keyDataJson = cvToJSON(keyData.result);
-  //   const tokenID = Number(keyDataJson.value.value);
+    const keyDataJson = cvToJSON(keyData.result);
+    const tokenID = Number(keyDataJson.value.value);
 
-  //   expect(tokenID).toBe(0);
+    expect(tokenID).toBe(0);
     
-  //   const data = simnet.callPrivateFn(
-  //     "KeyIssuance2",
-  //     "is-dead",
-  //     [uintCV(tokenID)],
-  //     address1
-  //   )
-  //   expect(data).toBe(false);
-  // });
+    const data = simnet.callPrivateFn(
+      "KeyIssuance2",
+      "is-dead",
+      [uintCV(tokenID)],
+      address1
+    )
+    expect(data).toBe(false);
+  });
 
 
   
