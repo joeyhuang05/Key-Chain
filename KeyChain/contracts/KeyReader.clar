@@ -8,6 +8,7 @@
          (index (index-of? connects keyid)))
     
     (if (and (is-none index) (< (len connects) u100)) ;; Match the list length limit
+    (if (is-none index) ;; Match the list length limit
         (ok (var-set connections (unwrap! (as-max-len? (append connects keyid) u100) (err u1))))
         (err u1)
     )

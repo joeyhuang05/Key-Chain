@@ -10,7 +10,7 @@ const clarityCode = fs.readFileSync('../../KeyChain/contracts/KeyIssuance2.clar'
 
 
 async function deployContract(){
-    const senderKey = 'user-private-key';
+    const senderKey = 'your-private-key';
     const txOptions = {
         contractName: 'your-contract-name',
         codeBody: clarityCode,
@@ -24,8 +24,12 @@ async function deployContract(){
         console.log('Trasanction ID:', response.txid);
         console.log('Contract Addresses:', response.contract_address)
     } catch (error) {
-        
+        console.error('Error deploying contract:', error);
     }
 }
 
+<<<<<<< HEAD
 await deployContract()
+=======
+deployContract();
+>>>>>>> 3cd76c0cc5d5d5b4d723b28c566a2c9aac5d6aa4
