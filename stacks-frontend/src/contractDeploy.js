@@ -3,6 +3,7 @@ import { makeContractDeploy, broadcastTransaction } from '@stacks/transactions';
 
 import fs from 'fs';
 import pkg from '@stacks/network';
+
 const { StacksTestnet } = pkg;
 
 const network = StacksTestnet;
