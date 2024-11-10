@@ -1,14 +1,28 @@
 (define-data-var connections (list 50 principal) (list ))
 
-(define-public (add-key (keyid principal))
-    (match (index-of? connections keyid) index (ok 3) (append connections keyid))
-)
+(define-public (addKey (keyid principal))
+    (let 
+        ((index (index-of? connections keyid)))
 
-(define-public (remove-key (keyid principal))
-)
-
-(define-public (acceptable-keys (business principal))
+    (if (is-none index) 
+        (append connections keyid) 
+        (ok connections)
     )
+    (ok connections)
+    )
+)
+
+(define-public (removeKey (keyid principal))
+    (let 
+        ((index (index-of? connections keyid)))
+
+    (if (is-none index)
+        (ok connections)
+        (ok concat (slice? connections 0 index) (slice? connections index (+ (len connections) 1)))
+    )
+    (ok connections)
+    )
+)
 
 
 
