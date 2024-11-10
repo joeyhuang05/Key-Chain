@@ -45,6 +45,9 @@ const LoginPage = () => {
         name: 'KeyChain', // Replace with your app name
         icon: appIcon,
       },
+      onFinish: () => {
+        let userData = userSession.loadUserData();
+      },
       userSession,
     });
   };

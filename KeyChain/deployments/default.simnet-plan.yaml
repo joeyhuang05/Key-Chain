@@ -48,15 +48,13 @@ genesis:
 plan:
   batches:
     - id: 0
-      transactions: []
-      epoch: "2.0"
-    - id: 1
       transactions:
         - emulated-contract-publish:
             contract-name: nft-trait
             emulated-sender: SP2PABAF9FTAJYNFZH93XENAJ8FVY99RRM50D2JG9
             path: "./.cache/requirements/SP2PABAF9FTAJYNFZH93XENAJ8FVY99RRM50D2JG9.nft-trait.clar"
             clarity-version: 1
+<<<<<<< Updated upstream
       epoch: "2.1"
     - id: 2
       transactions: []
@@ -506,6 +504,10 @@ plan:
       transactions: []
       epoch: "2.1"
     - id: 151
+=======
+      epoch: "2.0"
+    - id: 1
+>>>>>>> Stashed changes
       transactions:
         - emulated-contract-publish:
             contract-name: KeyIssuance
@@ -518,6 +520,7 @@ plan:
             path: contracts/KeyReader.clar
             clarity-version: 3
       epoch: "3.0"
+<<<<<<< Updated upstream
     - id: 152
       transactions: []
       epoch: "3.0"
@@ -968,3 +971,5 @@ plan:
     - id: 301
       transactions: []
       epoch: "3.0"
+=======
+>>>>>>> Stashed changes
