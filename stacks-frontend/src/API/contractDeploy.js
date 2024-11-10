@@ -46,9 +46,9 @@ async function deployContract(contractName, [contractPath]) {
 }
 
 // deploying KeyIssuance2
-async function deployKeyIssuance2() {
-    const contractname = 'KeyIssuance2';
-    const contractpath = '../../KeyChain/contracts/KeyIssuance2.clar';
+async function deployKeyIssuance() {
+    const contractname = 'KeyIssuance';
+    const contractpath = '../../KeyChain/contracts/KeyIssuance.clar';
     await deployContract(contractname, contractPath)
 }
 
@@ -62,7 +62,7 @@ async function deployKeyReader() {
 // deploy both sequentially
 async function deployBothContracts() {
     console.log('Deploying KeyIssuance...');
-    await deployKeyIssuance2();
+    await deployKeyIssuance();
 
     console.log('Deploying KeyReader...');
     await deployKeyReader();
