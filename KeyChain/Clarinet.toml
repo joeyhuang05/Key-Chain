@@ -8,8 +8,8 @@ cache_dir = './.cache'
 [[project.requirements]]
 contract_id = 'SP2PABAF9FTAJYNFZH93XENAJ8FVY99RRM50D2JG9.nft-trait'
 
-[contracts.KeyIssuance2]
-path = 'contracts/KeyIssuance2.clar'
+[contracts.KeyIssuance]
+path = 'contracts/KeyIssuance.clar'
 clarity_version = 3
 epoch = 3.0
 

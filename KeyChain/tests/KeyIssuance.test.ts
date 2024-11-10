@@ -20,7 +20,7 @@ const businessD = mocks[3];
 describe("Key Issuance 2 test", () => {
 
   it("contract deployed", () => {
-    const contractSource = simnet.getContractSource("KeyIssuance2");
+    const contractSource = simnet.getContractSource("KeyIssuance");
     expect(contractSource).toBeDefined();
   });
 
@@ -33,7 +33,7 @@ describe("Key Issuance 2 test", () => {
 
   it ("issue-key: check 1st key", () => {
     const {result} = simnet.callPublicFn(
-      "KeyIssuance2",    // Contract name
+      "KeyIssuance",    // Contract name
       "issue-key",       // Function name
       [recipient],      // Arguments for the function (recipient)
       address1          // Sender address (contract owner in this case)
@@ -46,27 +46,27 @@ describe("Key Issuance 2 test", () => {
 
   it ("test list content", () => {
     const data1 = simnet.getDataVar(
-      "KeyIssuance2",
+      "KeyIssuance",
       "live-keys"
     );
     const ignore = simnet.callPublicFn(
-      "KeyIssuance2",    
+      "KeyIssuance",    
       "issue-key",       
       [recipient],      
       address1          
     );
     const data2 = simnet.getDataVar(
-      "KeyIssuance2",
+      "KeyIssuance",
       "live-keys"
     );
     const ignore2 = simnet.callPublicFn(
-      "KeyIssuance2",    
+      "KeyIssuance",    
       "issue-key",       
       [recipient],      
       address2         
     );
     const data3 = simnet.getDataVar(
-      "KeyIssuance2",
+      "KeyIssuance",
       "live-keys"
     );
 
@@ -77,13 +77,13 @@ describe("Key Issuance 2 test", () => {
   
   it ("issue-key: check 2nd id", () => {
     const ignore = simnet.callPublicFn(
-      "KeyIssuance2",    
+      "KeyIssuance",    
       "issue-key",       
       [recipient],      
       address1          
     );
     const {result} = simnet.callPublicFn(
-      "KeyIssuance2",
+      "KeyIssuance",
       "issue-key",
       [recipient],
       address1
@@ -100,7 +100,7 @@ describe("Key Issuance 2 test", () => {
   it ("get-key-details: correct address", () => {
     // Get the key
     const keyData = simnet.callPublicFn(
-      "KeyIssuance2",    // Contract name
+      "KeyIssuance",    // Contract name
       "issue-key",       // Function name
       [recipient],      // Arguments for the function (recipient)
       address1          // Sender address (contract owner in this case)
@@ -112,7 +112,7 @@ describe("Key Issuance 2 test", () => {
 
     // Get th key details
     const {result} = simnet.callReadOnlyFn(
-      "KeyIssuance2",        // Contract name
+      "KeyIssuance",        // Contract name
       "get-key-details",     // Function name
       [uintCV(tokenID)],    // Arguments for the function (recipient)
       address1              // Sender address (contract owner in this case)
@@ -134,7 +134,7 @@ describe("Key Issuance 2 test", () => {
   it ("is-dead: false", () => {
     // issue a key
     const keyData = simnet.callPublicFn(
-      "KeyIssuance2",    
+      "KeyIssuance",    
       "issue-key",      
       [recipient],      
       address1          
@@ -146,7 +146,7 @@ describe("Key Issuance 2 test", () => {
     expect(tokenID).toBe(0);
     
     const data = simnet.callPrivateFn(
-      "KeyIssuance2",
+      "KeyIssuance",
       "is-dead",
       [uintCV(tokenID)],
       address1
@@ -166,7 +166,7 @@ describe("Key Issuance 2 test", () => {
     // user visits all 4 business and gets key
     senders.forEach((sender) => {
       simnet.callPublicFn(
-        "KeyIssuance2",
+        "KeyIssuance",
         "issue-key",
         [recipient],
         cvToString(sender)
@@ -176,7 +176,7 @@ describe("Key Issuance 2 test", () => {
 
     // call function to check on user wallet (recipent) -> 2 matches
     const response = simnet.callReadOnlyFn (
-      "KeyIssuance2",
+      "KeyIssuance",
       "get-user-map",
       [recipient],
       cvToString(businessA)
