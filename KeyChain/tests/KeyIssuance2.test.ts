@@ -1,12 +1,21 @@
 
 import { describe, expect, it } from "vitest";
 
-import { principalCV, cvToJSON , uintCV, PrincipalCV, intCV } from '@stacks/transactions';
+import { principalCV, cvToJSON , uintCV, PrincipalCV, intCV, cvToString } from '@stacks/transactions';
 
+import { mocks} from "./mocks";
 
 const accounts: Map<string, string> = simnet.getAccounts();
 const address1: string = accounts.get("wallet_1")!;
 const address2: string = accounts.get("wallet_2")!;
+
+// Test for simple user and 4 businesss
+const businessA = mocks[0];
+const businessB = mocks[1];
+const businessC = mocks[2];
+const businessD = mocks[3];
+
+
 
 describe("Key Issuance 2 test", () => {
 
@@ -61,9 +70,9 @@ describe("Key Issuance 2 test", () => {
       "live-keys"
     );
 
-    console.log(data1);
-    console.log(data2);
-    console.log(data3);
+    expect(cvToJSON(data1).value.length).toBe(0);
+    expect(cvToJSON(data2).value.length).toBe(1);
+    expect(cvToJSON(data3).value.length).toBe(2);
   })
   
   it ("issue-key: check 2nd id", () => {
@@ -150,7 +159,67 @@ describe("Key Issuance 2 test", () => {
    * Test validate key
    */
   it ("Validate Key", () => {
+
+    // 4 wallets give key to user
+    const senders = [businessA, businessB, businessC, businessD];
+
+    senders.forEach(business => {
+      simnet.callPublicFn(
+        "KeyIssuance2",
+        "issue-key",
+        [business],
+        cvToString(recipient)
+      )
+    });
     
+    // in key reader we add wallet 2, 3 as verified business
+    // A and B
+
+    // Business B add C, D
+    for (let i = 0; i <= 3; i++) {
+      simnet.callPublicFn(
+        "KeyReader",
+        "addKey",
+        [senders[i]],
+        cvToString(businessA)
+      )
+    }
+
+    // Business 
+    for (let i = 0; i <= 3; i++) {
+      simnet.callPublicFn(
+        "KeyReader",
+        "addKey",
+        [senders[i]],
+        cvToString(businessB)
+      )
+    }
+
+    for (let i = 0; i <= 3; i++) {
+      simnet.callPublicFn(
+        "KeyReader",
+        "addKey",
+        [senders[i]],
+        cvToString(recipient)
+      )
+    }
+
+    // call function to check on user wallet (recipent) -> 2 matches
+    const response = simnet.callReadOnlyFn (
+      "KeyIssuance2",
+      "get-user-map",
+      [recipient],
+      cvToString(businessA)
+    )
+
+    // const mapCheck = simnet.getDataVar (
+    //   "KeyIssuance2", "user-map"
+    // )
+
+    // console.log("Map check");
+    // console.log(mapCheck);
+    // expect(response).toBe(0);
+
   })
 
   
