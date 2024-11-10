@@ -13,7 +13,7 @@
             (var-set live-keys (filter is-dead (var-get live-keys)))
             (try! (nft-mint? keys token-id user))
             (map-insert key-data token-id (tuple (business tx-sender) (time current-time)))
-            (append (var-get live-keys) token-id)
+            (var-set live-keys (unwrap! (as-max-len?  (append (var-get live-keys) token-id) u50) (err u1)))
             (var-set nfts-minted (+ token-id u1))
             (ok token-id)
         )
