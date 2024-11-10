@@ -1,9 +1,11 @@
 
 import { describe, expect, it } from "vitest";
 
-import { generateMockPrincipals } from "./mocks";
+import { mocks} from "./mocks";
 
-import { principalCV, cvToJSON , uintCV, PrincipalCV } from '@stacks/transactions';
+import { principalCV, cvToJSON , uintCV, PrincipalCV , cvToString} from '@stacks/transactions';
+
+
 
 const accounts: Map<string, string> = simnet.getAccounts();
 const address1: string = accounts.get("wallet_1")!;
@@ -21,24 +23,35 @@ describe("Key Reader Test", () => {
     expect(contractSource).toBeDefined();
   });
 
-  const mockPrincipal = generateMockPrincipals(10);
-
-  const recipient: PrincipalCV = principalCV('STB44HYPYAT2BB2QE513NSP81HTMYWBJP02HPGK6');
-
-  it("add key", () => {
-    const data = simnet.callPublicFn(
+  it("Add Keys: add 5 check", () => {
+    
+    const initial = simnet.getDataVar(
       "KeyReader",
-      "addKey",
-      [recipient],
-      address1
+      "connections"
     )
-    expect(data).toBe(0);
+    const initialJSON = cvToJSON(initial);
+    expect(initialJSON.value).toStrictEqual([]);
+    
+    for (let i = 0; i < 5; i++) {
+      simnet.callPublicFn(
+        "KeyReader",
+        "addKey",
+        [mocks[i]],
+        address1
+      )
+    }
 
-    const check = simnet.getDataVar(
+    const after = simnet.getDataVar(
       "KeyReader",
       "connections"
     )
 
+    const afterJSON = cvToJSON(after);
+    const results = afterJSON.value; 
+    
+    for (let i = 0; i < 5; i++) {
+      expect(results[i].value).toBe(cvToString(mocks[i]));
+    }
   });
 
 

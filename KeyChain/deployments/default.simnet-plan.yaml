@@ -125,7 +125,6 @@ plan:
       transactions: []
       epoch: "2.1"
     - id: 24
-<<<<<<< HEAD
       transactions: []
       epoch: "2.1"
     - id: 25
@@ -135,8 +134,105 @@ plan:
       transactions: []
       epoch: "2.1"
     - id: 27
-=======
->>>>>>> 957856b2cc69ccb1c75fa3ec00b05fc4a59efe25
+      transactions: []
+      epoch: "2.1"
+    - id: 28
+      transactions: []
+      epoch: "2.1"
+    - id: 29
+      transactions: []
+      epoch: "2.1"
+    - id: 30
+      transactions: []
+      epoch: "2.1"
+    - id: 31
+      transactions: []
+      epoch: "2.1"
+    - id: 32
+      transactions: []
+      epoch: "2.1"
+    - id: 33
+      transactions: []
+      epoch: "2.1"
+    - id: 34
+      transactions: []
+      epoch: "2.1"
+    - id: 35
+      transactions: []
+      epoch: "2.1"
+    - id: 36
+      transactions: []
+      epoch: "2.1"
+    - id: 37
+      transactions: []
+      epoch: "2.1"
+    - id: 38
+      transactions: []
+      epoch: "2.1"
+    - id: 39
+      transactions: []
+      epoch: "2.1"
+    - id: 40
+      transactions: []
+      epoch: "2.1"
+    - id: 41
+      transactions: []
+      epoch: "2.1"
+    - id: 42
+      transactions: []
+      epoch: "2.1"
+    - id: 43
+      transactions: []
+      epoch: "2.1"
+    - id: 44
+      transactions: []
+      epoch: "2.1"
+    - id: 45
+      transactions: []
+      epoch: "2.1"
+    - id: 46
+      transactions: []
+      epoch: "2.1"
+    - id: 47
+      transactions: []
+      epoch: "2.1"
+    - id: 48
+      transactions: []
+      epoch: "2.1"
+    - id: 49
+      transactions: []
+      epoch: "2.1"
+    - id: 50
+      transactions: []
+      epoch: "2.1"
+    - id: 51
+      transactions: []
+      epoch: "2.1"
+    - id: 52
+      transactions: []
+      epoch: "2.1"
+    - id: 53
+      transactions: []
+      epoch: "2.1"
+    - id: 54
+      transactions: []
+      epoch: "2.1"
+    - id: 55
+      transactions: []
+      epoch: "2.1"
+    - id: 56
+      transactions: []
+      epoch: "2.1"
+    - id: 57
+      transactions: []
+      epoch: "2.1"
+    - id: 58
+      transactions: []
+      epoch: "2.1"
+    - id: 59
+      transactions: []
+      epoch: "2.1"
+    - id: 60
       transactions:
         - emulated-contract-publish:
             contract-name: KeyIssuance
@@ -154,93 +250,177 @@ plan:
             path: contracts/KeyReader.clar
             clarity-version: 3
       epoch: "3.0"
-<<<<<<< HEAD
-=======
-    - id: 25
+    - id: 61
       transactions: []
       epoch: "3.0"
-    - id: 26
+    - id: 62
       transactions: []
       epoch: "3.0"
-    - id: 27
+    - id: 63
       transactions: []
       epoch: "3.0"
->>>>>>> 957856b2cc69ccb1c75fa3ec00b05fc4a59efe25
-    - id: 28
+    - id: 64
       transactions: []
       epoch: "3.0"
-    - id: 29
+    - id: 65
       transactions: []
       epoch: "3.0"
-    - id: 30
+    - id: 66
       transactions: []
       epoch: "3.0"
-    - id: 31
+    - id: 67
       transactions: []
       epoch: "3.0"
-    - id: 32
+    - id: 68
       transactions: []
       epoch: "3.0"
-    - id: 33
+    - id: 69
       transactions: []
       epoch: "3.0"
-    - id: 34
+    - id: 70
       transactions: []
       epoch: "3.0"
-    - id: 35
+    - id: 71
       transactions: []
       epoch: "3.0"
-    - id: 36
+    - id: 72
       transactions: []
       epoch: "3.0"
-    - id: 37
+    - id: 73
       transactions: []
       epoch: "3.0"
-    - id: 38
+    - id: 74
       transactions: []
       epoch: "3.0"
-    - id: 39
+    - id: 75
       transactions: []
       epoch: "3.0"
-    - id: 40
+    - id: 76
       transactions: []
       epoch: "3.0"
-    - id: 41
+    - id: 77
       transactions: []
       epoch: "3.0"
-    - id: 42
+    - id: 78
       transactions: []
       epoch: "3.0"
-    - id: 43
+    - id: 79
       transactions: []
       epoch: "3.0"
-    - id: 44
+    - id: 80
       transactions: []
       epoch: "3.0"
-    - id: 45
+    - id: 81
       transactions: []
       epoch: "3.0"
-    - id: 46
+    - id: 82
       transactions: []
       epoch: "3.0"
-<<<<<<< HEAD
-    - id: 47
+    - id: 83
       transactions: []
       epoch: "3.0"
-    - id: 48
+    - id: 84
       transactions: []
       epoch: "3.0"
-    - id: 49
+    - id: 85
       transactions: []
       epoch: "3.0"
-    - id: 50
+    - id: 86
       transactions: []
       epoch: "3.0"
-    - id: 51
+    - id: 87
       transactions: []
       epoch: "3.0"
-    - id: 52
+    - id: 88
       transactions: []
       epoch: "3.0"
-=======
->>>>>>> 957856b2cc69ccb1c75fa3ec00b05fc4a59efe25
+    - id: 89
+      transactions: []
+      epoch: "3.0"
+    - id: 90
+      transactions: []
+      epoch: "3.0"
+    - id: 91
+      transactions: []
+      epoch: "3.0"
+    - id: 92
+      transactions: []
+      epoch: "3.0"
+    - id: 93
+      transactions: []
+      epoch: "3.0"
+    - id: 94
+      transactions: []
+      epoch: "3.0"
+    - id: 95
+      transactions: []
+      epoch: "3.0"
+    - id: 96
+      transactions: []
+      epoch: "3.0"
+    - id: 97
+      transactions: []
+      epoch: "3.0"
+    - id: 98
+      transactions: []
+      epoch: "3.0"
+    - id: 99
+      transactions: []
+      epoch: "3.0"
+    - id: 100
+      transactions: []
+      epoch: "3.0"
+    - id: 101
+      transactions: []
+      epoch: "3.0"
+    - id: 102
+      transactions: []
+      epoch: "3.0"
+    - id: 103
+      transactions: []
+      epoch: "3.0"
+    - id: 104
+      transactions: []
+      epoch: "3.0"
+    - id: 105
+      transactions: []
+      epoch: "3.0"
+    - id: 106
+      transactions: []
+      epoch: "3.0"
+    - id: 107
+      transactions: []
+      epoch: "3.0"
+    - id: 108
+      transactions: []
+      epoch: "3.0"
+    - id: 109
+      transactions: []
+      epoch: "3.0"
+    - id: 110
+      transactions: []
+      epoch: "3.0"
+    - id: 111
+      transactions: []
+      epoch: "3.0"
+    - id: 112
+      transactions: []
+      epoch: "3.0"
+    - id: 113
+      transactions: []
+      epoch: "3.0"
+    - id: 114
+      transactions: []
+      epoch: "3.0"
+    - id: 115
+      transactions: []
+      epoch: "3.0"
+    - id: 116
+      transactions: []
+      epoch: "3.0"
+    - id: 117
+      transactions: []
+      epoch: "3.0"
+    - id: 118
+      transactions: []
+      epoch: "3.0"
