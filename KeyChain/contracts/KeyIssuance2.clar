@@ -56,3 +56,7 @@
 (define-read-only (get-key-details (key-id uint))
     (ok (map-get? key-data key-id))
 )
+
+(define-read-only (get-user-map (user principal))
+    (map-get? user-map user)
+)
