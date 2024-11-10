@@ -163,6 +163,7 @@ describe("Key Issuance 2 test", () => {
     // 4 wallets give key to user
     const senders = [businessA, businessB, businessC, businessD];
 
+    // user visits all 4 business and gets key
     senders.forEach(business => {
       simnet.callPublicFn(
         "KeyIssuance2",
@@ -172,10 +173,7 @@ describe("Key Issuance 2 test", () => {
       )
     });
     
-    // in key reader we add wallet 2, 3 as verified business
-    // A and B
-
-    // Business B add C, D
+    // Business A add all the other businesses
     for (let i = 0; i <= 3; i++) {
       simnet.callPublicFn(
         "KeyReader",
@@ -185,36 +183,19 @@ describe("Key Issuance 2 test", () => {
       )
     }
 
-    // Business 
-    for (let i = 0; i <= 3; i++) {
-      simnet.callPublicFn(
-        "KeyReader",
-        "addKey",
-        [senders[i]],
-        cvToString(businessB)
-      )
-    }
-
-    for (let i = 0; i <= 3; i++) {
-      simnet.callPublicFn(
-        "KeyReader",
-        "addKey",
-        [senders[i]],
-        cvToString(recipient)
-      )
-    }
-
     // call function to check on user wallet (recipent) -> 2 matches
     const response = simnet.callReadOnlyFn (
       "KeyIssuance2",
       "get-user-map",
-      [recipient],
-      cvToString(businessA)
+      [businessA],
+      cvToString(recipient)
     )
 
-    // const mapCheck = simnet.getDataVar (
-    //   "KeyIssuance2", "user-map"
-    // )
+    const {result} = response;
+ 
+    const json = cvToJSON(result);
+
+    console.log(json.value);
 
     // console.log("Map check");
     // console.log(mapCheck);
