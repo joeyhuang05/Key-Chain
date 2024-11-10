@@ -6,6 +6,7 @@ import { principalCV, cvToJSON , uintCV, PrincipalCV, intCV } from '@stacks/tran
 
 const accounts: Map<string, string> = simnet.getAccounts();
 const address1: string = accounts.get("wallet_1")!;
+const address2: string = accounts.get("wallet_2")!;
 
 describe("Key Issuance 2 test", () => {
 
@@ -49,9 +50,20 @@ describe("Key Issuance 2 test", () => {
       "KeyIssuance2",
       "live-keys"
     );
+    const ignore2 = simnet.callPublicFn(
+      "KeyIssuance2",    
+      "issue-key",       
+      [recipient],      
+      address2         
+    );
+    const data3 = simnet.getDataVar(
+      "KeyIssuance2",
+      "live-keys"
+    );
 
     console.log(data1);
     console.log(data2);
+    console.log(data3);
   })
   
   it ("issue-key: check 2nd id", () => {
@@ -130,7 +142,8 @@ describe("Key Issuance 2 test", () => {
       [uintCV(tokenID)],
       address1
     )
-    expect(data).toBe(false);
+
+    expect(data.result.type).toBe(3);
   });
 
 

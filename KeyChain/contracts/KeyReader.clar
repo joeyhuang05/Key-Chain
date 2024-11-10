@@ -28,7 +28,6 @@
     (is-eq id (var-get bigKey)))
 
 
-;; (define-map connections { keyid: principal } { keydata: principal})
-;; 
-;; (define-public (addKey (keyid principal)))
-;;     )
+(define-public (key_matches (user principal))
+    (ok 1)
+)
