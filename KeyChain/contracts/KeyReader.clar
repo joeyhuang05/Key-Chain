@@ -25,7 +25,8 @@
 ))
 
 (define-private (isIn (id principal))
-    (is-eq id (var-get bigKey)))
+    (not (is-eq id (var-get bigKey)))
+)
 
 
 (define-public (key_matches (user principal))
