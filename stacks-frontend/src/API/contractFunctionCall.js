@@ -18,5 +18,5 @@ export async function issueKey((issue-key), [principal]) {
 
     const transaction = await makeContractCall(txOptions)
     return broadcastTransaction(transition, network);
+    }
 }
-
