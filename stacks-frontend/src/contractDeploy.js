@@ -10,7 +10,7 @@ const clarityCode = fs.readFileSync('../../KeyChain/contracts/KeyIssuance2.clar'
 
 
 async function deployContract(){
-    const senderKey = 'your-private-key';
+    const senderKey = '0e7e8c6f65b90a123b776c0b7f64073e0de7e6bb37e5b8f8b7a2c68b3c0f9a08';
     const txOptions = {
         contractName: 'your-contract-name',
         codeBody: clarityCode,
