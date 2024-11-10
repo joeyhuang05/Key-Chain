@@ -2,25 +2,21 @@ import { makeContractCall, broadcastTransaction, uintCV} from "@stacks/transacti
 import { StacksTestnet } from '@stacks/network'
 
 const network = new StacksTestnet();
+const senderKey = 'your private key';
 
 async function callContractFunction() {
-    const senderKey = 'your private key';
+
+export async function issueKey((issue-key), [principal]) {
     const txOptions = {
-        contractAdress: 'your contract address',
-        contractName: 'your contract name',
-        functionName: 'function name',
-        functionArgs: [uintCV(42)],
-        senderKey: senderKey,
-        network: network,
+        contractAddress: 'your contract address',
+        contractName: 'KeyIssuance',
+        functionName,
+        functionArgs,
+        senderKey,
+        network,
     };
+
+    const transaction = await makeContractCall(txOptions)
+    return broadcastTransaction(transition, network);
 }
 
-try {
-    const transaction = await makeContractCall(txOptions);
-    const response = await broadcastTransaction(transaction, network);
-    console.log('Transaction ID:', response.txid);
-} catch (error) {
-    console.error('Error calling contract:', error)
-}
-// const condition01 = Pc.principal()
-callContractFunction();
