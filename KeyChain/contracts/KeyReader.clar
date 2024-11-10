@@ -1,5 +1,6 @@
 (define-data-var connections (list 100 principal) (list))
 (define-data-var bigKey principal 'SP000000000000000000002Q6VF78)
+(define-data-var userkey principal 'SP000000000000000000002Q6VF78)
 
 (define-public (addKey (keyid principal))
     (let 
@@ -30,5 +31,24 @@
 
 
 (define-public (key_matches (user principal))
-    (ok 1)
+    (let (
+        (user-key-chain (unwrap! (contract-call? .KeyIssuance2 get-user-map user) (err u1)))
+    )
+    (ok (len (filter filterl1 user-key-chain)))
+    )
+)
+
+(define-private (filterl1 (user principal))
+    (begin
+        (var-set userkey user)
+        (if 
+            (is-eq u1 (len (filter filterl2 (var-get connections))))
+            true
+            false
+        )
+    )
+)
+
+(define-private (filterl2 (business principal))
+    (is-eq (var-get userkey) business)
 )

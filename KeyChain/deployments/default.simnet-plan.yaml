@@ -257,6 +257,9 @@ plan:
       transactions: []
       epoch: "2.1"
     - id: 68
+      transactions: []
+      epoch: "2.1"
+    - id: 69
       transactions:
         - emulated-contract-publish:
             contract-name: KeyIssuance2
@@ -268,9 +271,6 @@ plan:
             emulated-sender: ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM
             path: contracts/KeyReader.clar
             clarity-version: 3
-      epoch: "3.0"
-    - id: 69
-      transactions: []
       epoch: "3.0"
     - id: 70
       transactions: []
@@ -468,5 +468,11 @@ plan:
       transactions: []
       epoch: "3.0"
     - id: 135
+      transactions: []
+      epoch: "3.0"
+    - id: 136
+      transactions: []
+      epoch: "3.0"
+    - id: 137
       transactions: []
       epoch: "3.0"
