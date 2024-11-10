@@ -146,6 +146,12 @@ describe("Key Issuance 2 test", () => {
     expect(data.result.type).toBe(3);
   });
 
+  /**
+   * Test validate key
+   */
+  it ("Validate Key", () => {
+    
+  })
 
   
 });
