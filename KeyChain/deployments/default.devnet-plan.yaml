@@ -31,6 +31,9 @@ plan:
             expected-sender: ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM
 <<<<<<< Updated upstream
             cost: 15730
+=======
+            cost: 15050
+>>>>>>> Stashed changes
             path: contracts/KeyReader.clar
             anchor-block-only: true
             clarity-version: 3
