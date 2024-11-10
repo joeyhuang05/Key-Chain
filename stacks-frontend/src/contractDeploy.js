@@ -1,9 +1,13 @@
 import { makeContractDeploy, broadcastTransaction } from '@stacks/transactions';
-import { StacksTestnet } from '@stacks/network'
-import fs from 'fs';
+//import { StacksTestnet } from '@stacks/network'
 
-const network = new StacksTestnet();
-const clarityCode = fs.readFileSync('./KeyIssuance2.clar', 'utf-8');
+import fs from 'fs';
+import pkg from '@stacks/network';
+const { StacksTestnet } = pkg;
+
+const network = StacksTestnet;
+const clarityCode = fs.readFileSync('../../KeyChain/contracts/KeyIssuance2.clar', 'utf-8');
+
 
 async function deployContract(){
     const senderKey = 'your-private-key';
@@ -24,4 +28,4 @@ async function deployContract(){
     }
 }
 
-deployContract();
+await deployContract()
