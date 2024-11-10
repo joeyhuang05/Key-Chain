@@ -35,7 +35,7 @@
 
 (define-public (key_matches (user principal))
     (let (
-        (user-key-chain (unwrap! (contract-call? .KeyIssuance2 get-user-map user) (err u1)))
+        (user-key-chain (unwrap! (contract-call? .KeyIssuance get-user-map user) (err u1)))
     )
     (ok (len (filter filterl1 user-key-chain)))
     )
