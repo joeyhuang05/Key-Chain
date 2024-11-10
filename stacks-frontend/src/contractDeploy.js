@@ -19,4 +19,7 @@ async function deployContract(){
         const response = await broadcastTransaction(transaction, network);
         console.log('Trasanction ID:', responsetxid);
         console.log('Contract Addresses:', response.contract_address)
-    }}
+    } catch (error) {
+        
+    }
+}

@@ -188,8 +188,6 @@ describe("Key Issuance 2 test", () => {
 
     const visited = json.value.value;
 
-    const a = [];
-    const b = [];
 
     // check that user has all business keys
     for (let i = 0; i < 4; i++) {
