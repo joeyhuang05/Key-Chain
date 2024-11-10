@@ -15,9 +15,12 @@
 
 (define-public (removeKey (keyid principal))
     (let 
-        ((connects (var-get connections)))
+        (
+            (connects (var-get connections))
+        )
 
         (begin
+            (asserts! (is-ok (principal-destruct? keyid)) (err u1))
             (var-set bigKey keyid)
             (var-set connections (filter isIn connects))
             (ok true)
