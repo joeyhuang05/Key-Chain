@@ -24,20 +24,21 @@ describe("Key Issuance 2 test", () => {
     );
     const data = cvToJSON(result);
     const tokenID = data.value.value;
-    expect(tokenID).toBe("1");           
-  })
+    expect(tokenID).toBe("0");           
+  });
 
   it ("get-key-details test", () => {
     const {result} = simnet.callReadOnlyFn(
       "KeyIssuance2",     // Contract name
       "get-key-details",  // Function name
-      [uintCV("2")],      // Arguments for the function (recipient)
+      [uintCV("0")],      // Arguments for the function (recipient)
       address1            // Sender address (contract owner in this case)
     );
     const data = cvToJSON(result);
     const sucess = data.success;
     expect(sucess).toBe(true);
-    //expect(cvToJSON(result)).toBe(true);
-  })
+    expect(cvToJSON(result)).toBe(true);
+  });
+
 
 });
