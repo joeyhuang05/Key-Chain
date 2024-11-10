@@ -34,6 +34,26 @@ describe("Key Issuance 2 test", () => {
     expect(tokenID).toBe("0");        
   });
 
+  it ("test list content", () => {
+    const data1 = simnet.getDataVar(
+      "KeyIssuance2",
+      "live-keys"
+    );
+    const ignore = simnet.callPublicFn(
+      "KeyIssuance2",    
+      "issue-key",       
+      [recipient],      
+      address1          
+    );
+    const data2 = simnet.getDataVar(
+      "KeyIssuance2",
+      "live-keys"
+    );
+
+    console.log(data1);
+    console.log(data2);
+  })
+  
   it ("issue-key: check 2nd id", () => {
     const ignore = simnet.callPublicFn(
       "KeyIssuance2",    
