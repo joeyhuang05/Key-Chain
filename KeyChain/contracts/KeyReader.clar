@@ -1,4 +1,4 @@
-(define-data-var connections (list 100 principal) (list ))
+(define-data-var connections (list 100 principal) (list))
 (define-data-var bigKey uint u0)
 
 (define-private (addKey (keyid principal))
@@ -6,9 +6,9 @@
         ((connects (var-get connections))
         (index (index-of? connects keyid)))
 
-    (if (is-none index)
-        (var-set connections (append connects keyid))
-        (ok connects)
+    (if (and (is-none index) (< (len connects) ()))
+        (ok (var-set connections (append connects keyid)))
+        (ok false)
     )
 ))
 
