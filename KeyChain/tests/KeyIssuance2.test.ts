@@ -200,7 +200,7 @@ describe("Key Issuance 2 test", () => {
  
     const json = cvToJSON(result);
 
-    console.log(json.value);
+    const visited = json.value.value;
 
     const response1 = simnet.callPublicFn (
       "KeyReader",
@@ -214,7 +214,11 @@ describe("Key Issuance 2 test", () => {
     // console.log(mapCheck);
     // expect(response).toBe(0);
 
+    // check that user has all business keys
+    for (let i = 0; i < 4; i++) {
+      const principle = visited[i].value;
+      const check = cvToString(senders[i]);
+      expect(principle).toBe(check);
+    }
   })
-
-  
 });
