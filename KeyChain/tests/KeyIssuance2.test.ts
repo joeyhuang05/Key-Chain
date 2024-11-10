@@ -17,7 +17,6 @@ describe("Key Issuance 2 test", () => {
   // example recipent
   const recipient: PrincipalCV = principalCV('STB44HYPYAT2BB2QE513NSP81HTMYWBJP02HPGK6');
 
-
   /**
    * Issue Key Tests
    */
@@ -52,7 +51,6 @@ describe("Key Issuance 2 test", () => {
     const tokenID = data.value.value;
     expect(tokenID).toBe("1");        
   });
-
 
   /**
    * Get Key Details Tests
@@ -100,18 +98,21 @@ describe("Key Issuance 2 test", () => {
       [recipient],      
       address1          
     );
+
     const keyDataJson = cvToJSON(keyData.result);
     const tokenID = Number(keyDataJson.value.value);
 
     expect(tokenID).toBe(0);
     
-    const {result} = simnet.callPrivateFn(
+    const data = simnet.callPrivateFn(
       "KeyIssuance2",
       "is-dead",
       [uintCV(tokenID)],
       address1
     )
-    expect(result).toBe(false);
+    expect(data).toBe(false);
   });
 
+
+  
 });
