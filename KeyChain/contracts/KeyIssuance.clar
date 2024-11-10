@@ -41,7 +41,6 @@
         (if (< key-time cutoff-time)
             (begin
                 (var-set check-business (default-to 'SP000000000000000000002Q6VF78 (get business data)))
-                (map-insert user-map user (filter is-in user-nfts))
                 (map-set user-map user (filter is-in user-nfts))
                 (is-err (nft-burn? keys token-id user))
             )
