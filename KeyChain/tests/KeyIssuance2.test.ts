@@ -173,6 +173,20 @@ describe("Key Issuance 2 test", () => {
       )
     });
     
+    simnet.callPublicFn (
+      "KeyReader",
+      "addKey",
+      [businessB],
+      cvToString(businessA)
+    )
+
+    simnet.callPublicFn (
+      "KeyReader",
+      "addKey",
+      [businessC],
+      cvToString(businessA)
+    )
+    
 
     // call function to check on user wallet (recipent) -> 2 matches
     const response = simnet.callReadOnlyFn (
@@ -188,8 +202,17 @@ describe("Key Issuance 2 test", () => {
 
     const visited = json.value.value;
 
-    const a = [];
-    const b = [];
+    const response1 = simnet.callPublicFn (
+      "KeyReader",
+      "key_matches",
+      [recipient],
+      cvToString(businessA)
+    )
+    console.log(cvToJSON(response1.result))
+
+    // console.log("Map check");
+    // console.log(mapCheck);
+    // expect(response).toBe(0);
 
     // check that user has all business keys
     for (let i = 0; i < 4; i++) {
