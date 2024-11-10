@@ -10,7 +10,7 @@
         (token-id (var-get nfts-minted))
     )
         (begin
-            (filter is-dead (var-get live-keys))
+            (var-set live-keys (filter is-dead (var-get live-keys)))
             (try! (nft-mint? keys token-id user))
             (map-insert key-data token-id (tuple (business tx-sender) (time current-time)))
             (append (var-get live-keys) token-id)
@@ -30,9 +30,9 @@
         )
         (if (< key-time cutoff-time)
             (begin
-                (is-ok (nft-burn? keys token-id nft-owner))
+                (is-err (nft-burn? keys token-id nft-owner))
             )
-            false
+            true
         )
     )
 )
