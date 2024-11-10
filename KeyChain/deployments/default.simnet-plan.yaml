@@ -260,6 +260,7 @@ plan:
       transactions: []
       epoch: "2.1"
     - id: 69
+<<<<<<< HEAD
       transactions: []
       epoch: "2.1"
     - id: 70
@@ -341,6 +342,8 @@ plan:
       transactions: []
       epoch: "2.1"
     - id: 96
+=======
+>>>>>>> 1696489e696f5ca7fb56f8ca1dbb5eb4ff97ca95
       transactions:
         - emulated-contract-publish:
             contract-name: KeyIssuance2
@@ -353,6 +356,90 @@ plan:
             path: contracts/KeyReader.clar
             clarity-version: 3
       epoch: "3.0"
+<<<<<<< HEAD
+=======
+    - id: 70
+      transactions: []
+      epoch: "3.0"
+    - id: 71
+      transactions: []
+      epoch: "3.0"
+    - id: 72
+      transactions: []
+      epoch: "3.0"
+    - id: 73
+      transactions: []
+      epoch: "3.0"
+    - id: 74
+      transactions: []
+      epoch: "3.0"
+    - id: 75
+      transactions: []
+      epoch: "3.0"
+    - id: 76
+      transactions: []
+      epoch: "3.0"
+    - id: 77
+      transactions: []
+      epoch: "3.0"
+    - id: 78
+      transactions: []
+      epoch: "3.0"
+    - id: 79
+      transactions: []
+      epoch: "3.0"
+    - id: 80
+      transactions: []
+      epoch: "3.0"
+    - id: 81
+      transactions: []
+      epoch: "3.0"
+    - id: 82
+      transactions: []
+      epoch: "3.0"
+    - id: 83
+      transactions: []
+      epoch: "3.0"
+    - id: 84
+      transactions: []
+      epoch: "3.0"
+    - id: 85
+      transactions: []
+      epoch: "3.0"
+    - id: 86
+      transactions: []
+      epoch: "3.0"
+    - id: 87
+      transactions: []
+      epoch: "3.0"
+    - id: 88
+      transactions: []
+      epoch: "3.0"
+    - id: 89
+      transactions: []
+      epoch: "3.0"
+    - id: 90
+      transactions: []
+      epoch: "3.0"
+    - id: 91
+      transactions: []
+      epoch: "3.0"
+    - id: 92
+      transactions: []
+      epoch: "3.0"
+    - id: 93
+      transactions: []
+      epoch: "3.0"
+    - id: 94
+      transactions: []
+      epoch: "3.0"
+    - id: 95
+      transactions: []
+      epoch: "3.0"
+    - id: 96
+      transactions: []
+      epoch: "3.0"
+>>>>>>> 1696489e696f5ca7fb56f8ca1dbb5eb4ff97ca95
     - id: 97
       transactions: []
       epoch: "3.0"
@@ -476,6 +563,7 @@ plan:
     - id: 137
       transactions: []
       epoch: "3.0"
+<<<<<<< HEAD
     - id: 138
       transactions: []
       epoch: "3.0"
@@ -638,3 +726,5 @@ plan:
     - id: 191
       transactions: []
       epoch: "3.0"
+=======
+>>>>>>> 1696489e696f5ca7fb56f8ca1dbb5eb4ff97ca95
