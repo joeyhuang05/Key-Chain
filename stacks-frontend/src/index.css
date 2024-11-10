@@ -11,3 +11,112 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.home {
+  margin: auto;
+  align-items: center;
+  width: 50%;
+  display: flex;
+  margin-top: 30vh;
+}
+
+.split-screen {
+  display: flex;
+  flex-direction: column;
+}
+
+.link-button {
+  color:black;
+  text-decoration: none;
+  border: 1px solid black;
+  text-align: center;
+  background-color: whitesmoke;
+  font-size: 3vh;
+  margin: auto;
+  width: 30vh;
+  padding: 2vh;
+}
+
+.link-button:hover {
+  opacity: 0.5;
+}
+
+
+.user h1 {
+  text-align: center;
+  font-size: 7vh;
+  margin-bottom: 0;
+}
+
+.user h3 {
+  text-align: center;
+  font-size: 2vh;
+}
+
+.user-keys {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-keys button {
+  margin-top: 2vh;
+  text-align: center;
+  width: 25vh;
+  padding: 2vh;
+}
+
+.user {
+  border: 1px solid black;
+  width: 100%;
+}
+
+.business {
+  border: 1px solid black;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.business h1 {
+  text-align: center;
+  font-size: 5vh;
+}
+
+.business button {
+  text-align: center;
+  font-size: 2vh;
+  width: 25vh;
+  padding: 1vh;
+  margin-bottom: 5vh;
+}
+
+.business-container {
+  display: flex;
+  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  margin-bottom: 5vh;
+}
+
+.keys span{
+  line-height: 3vh;
+}
+
+.keys {
+  margin-top: -1vh;
+  margin-bottom: 3vh;
+}
+
+.keys button {
+  width: 20vh;
+  height: 3vh;
+  margin-top: 2vh;
+}
+
+.key button:active {
+  opacity: 0.7;
+}
+
