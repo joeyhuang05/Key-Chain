@@ -1,28 +1,36 @@
 (define-data-var connections (list 50 principal) (list ))
+;;(define-data-var bigkey uint u0)
 
 (define-public (addKey (keyid principal))
     (let 
-        ((index (index-of? connections keyid)))
+        ((connects (var-get connections))
+        (index (index-of? connects keyid)))
 
     (if (is-none index) 
-        (append connections keyid) 
-        (ok connections)
+        (append connects keyid) 
+        (ok connects)
     )
-    (ok connections)
+    (ok connects)
     )
 )
 
 (define-public (removeKey (keyid principal))
     (let 
-        ((index (index-of? connections keyid)))
+        ((connects (var-get connections))
+        (index (index-of? connects keyid)))
 
     (if (is-none index)
-        (ok connections)
-        (ok concat (slice? connections 0 index) (slice? connections index (+ (len connections) 1)))
+        (ok connects)
+        ;;(begin
+        ;;(var-set bigkey value)
+        ;;(filter (isin _ keyid) connections)
+        ;;)
+        (ok concat (slice? connects 0 index) (slice? connects index (+ (len connects) 1)))
     )
-    (ok connections)
+    (ok connects)
     )
 )
+;;(define-public (isin (id uint) (keyid uint)) (is-eq id keyid))
 
 
 
