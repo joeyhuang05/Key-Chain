@@ -28,8 +28,4 @@ async function deployContract(){
     }
 }
 
-<<<<<<< HEAD
 await deployContract()
-=======
-deployContract();
->>>>>>> 3cd76c0cc5d5d5b4d723b28c566a2c9aac5d6aa4
