@@ -29,7 +29,15 @@ plan:
         - contract-publish:
             contract-name: KeyReader
             expected-sender: ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM
+<<<<<<< HEAD
             cost: 15720
+=======
+<<<<<<< Updated upstream
+            cost: 15730
+=======
+            cost: 15050
+>>>>>>> Stashed changes
+>>>>>>> 1144cc7f8fc9da5615cca45f391018b7a34d900e
             path: contracts/KeyReader.clar
             anchor-block-only: true
             clarity-version: 3
