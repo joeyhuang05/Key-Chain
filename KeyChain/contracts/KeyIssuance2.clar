@@ -24,8 +24,8 @@
     (let
         (
             (data (map-get? key-data token-id))
-            (key-time (default-to u0 (get time data)))
-            (cutoff-time (- (default-to u0 (get-stacks-block-info? time stacks-block-height)) u43200))
+            (key-time (+ (default-to u0 (get time data)) u43200))
+            (cutoff-time (default-to u0 (get-stacks-block-info? time stacks-block-height)))
             (nft-owner (unwrap! (nft-get-owner? keys token-id) false))
         )
         (if (< key-time cutoff-time)

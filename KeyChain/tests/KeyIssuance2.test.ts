@@ -1,7 +1,7 @@
 
 import { describe, expect, it } from "vitest";
 
-import { principalCV, cvToJSON , uintCV, PrincipalCV } from '@stacks/transactions';
+import { principalCV, cvToJSON , uintCV, PrincipalCV, intCV } from '@stacks/transactions';
 
 
 const accounts: Map<string, string> = simnet.getAccounts();
@@ -16,7 +16,8 @@ describe("Key Issuance 2 test", () => {
 
   // example recipent
   const recipient: PrincipalCV = principalCV('STB44HYPYAT2BB2QE513NSP81HTMYWBJP02HPGK6');
-  
+
+
   /**
    * Issue Key Tests
    */
@@ -52,6 +53,7 @@ describe("Key Issuance 2 test", () => {
     expect(tokenID).toBe("1");        
   });
 
+
   /**
    * Get Key Details Tests
    */
@@ -86,46 +88,30 @@ describe("Key Issuance 2 test", () => {
     expect(address).toBe(address1);
   });
 
-  it ("get-key-details: correct time", () => {
-    const ignore = simnet.callPublicFn(
-      "KeyIssuance2",    // Contract name
-      "issue-key",       // Function name
-      [recipient],      // Arguments for the function (recipient)
-      address1          // Sender address (contract owner in this case)
-    );
+  /**
+   * Is Key Dead Tests
+   */
 
+  it ("is-dead: false", () => {
+    // issue a key
     const keyData = simnet.callPublicFn(
-      "KeyIssuance2",    // Contract name
-      "issue-key",       // Function name
-      [recipient],      // Arguments for the function (recipient)
-      address1          // Sender address (contract owner in this case)
+      "KeyIssuance2",    
+      "issue-key",      
+      [recipient],      
+      address1          
     );
-
     const keyDataJson = cvToJSON(keyData.result);
-    const tokenID = keyDataJson.value.value;
-    expect(tokenID).toBe("1");
+    const tokenID = Number(keyDataJson.value.value);
 
-    // Get th key details
-    const {result} = simnet.callReadOnlyFn(
-      "KeyIssuance2",       
-      "get-key-details",     
-      [uintCV(tokenID)],   
-      address1              
-    );
-
-    const data = cvToJSON(result);
-    const success = data.success;
-    const address = data.value.value.value.business.value;
-    expect(success).toBe(true);
-
-    // Check that gets the wallet address is correct
-    expect(address).toBe(address1);
-    expect(data).toBe(true);
+    expect(tokenID).toBe(0);
+    
+    const {result} = simnet.callPrivateFn(
+      "KeyIssuance2",
+      "is-dead",
+      [uintCV(tokenID)],
+      address1
+    )
+    expect(result).toBe(false);
   });
-
-  
-
-
-
 
 });
