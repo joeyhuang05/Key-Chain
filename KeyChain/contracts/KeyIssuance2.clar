@@ -3,10 +3,8 @@
 (define-data-var nfts-minted uint u0)
 (define-data-var live-keys  (list 50 uint) (list ))
 (define-map key-data uint (tuple (business principal) (time uint)))
-(define-map user-map principal (list 50 uint))
 (define-map user-map principal (list 50 principal))
 
-(define-data-var check-id uint u0)
 (define-data-var check-business principal 'SP000000000000000000002Q6VF78)
 
 (define-public (issue-key (user principal))
@@ -21,8 +19,6 @@
             (map-insert key-data token-id (tuple (business tx-sender) (time current-time)))
             (match
                 user-nfts
-                value (map-insert user-map user (unwrap! (as-max-len?  (append value token-id) u50) (err u1)))
-                (map-insert user-map user (list token-id))
                 value (map-insert user-map user (unwrap! (as-max-len?  (append value tx-sender) u50) (err u1)))
                 (map-insert user-map user (list tx-sender))
             )
@@ -44,7 +40,6 @@
         )
         (if (< key-time cutoff-time)
             (begin
-                (var-set check-id token-id)
                 (var-set check-business (default-to 'SP000000000000000000002Q6VF78 (get business data)))
                 (map-insert user-map user (filter is-in user-nfts))
                 (is-err (nft-burn? keys token-id user))
@@ -54,8 +49,6 @@
     )
 )
 
-(define-private (is-in (token-id uint)) 
-    (not (is-eq token-id (var-get check-id)))
 (define-private (is-in (business principal)) 
     (not (is-eq business (var-get check-business)))
 )
