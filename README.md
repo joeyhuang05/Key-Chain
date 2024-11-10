@@ -1,1 +1,1 @@
-KeyChain is an app that uses NFT keys to connects consumers to companies through discounts. From increasing traffic to offering valuable market analytics collected through app usage, we provide a resource for businesses to expand.
+KeyChain is an app that uses NFT keys to connect consumers to companies through key specific discounts built on blockchain. From increasing traffic to offering valuable market analytics collected through app usage, we provide a resource for businesses to expand.
