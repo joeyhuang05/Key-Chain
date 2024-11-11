@@ -503,7 +503,6 @@ plan:
       transactions: []
       epoch: "2.1"
     - id: 150
-    - id: 1
       transactions:
         - emulated-contract-publish:
             contract-name: KeyIssuance
